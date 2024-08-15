@@ -1,0 +1,169 @@
+/* src/components/Header.css */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background: linear-gradient(135deg, #4a90e2, #50e3c2); /* Gradient background */
+  color: #fff;
+  height: 70px;
+  position: fixed; /* Fix the header at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays above other content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.logo .logo-icon {
+  height: 50px; /* Slightly larger logo */
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.8rem; /* Larger font size for the title */
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Add text shadow */
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem; /* Larger hamburger icon */
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.hamburger:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+.navigation {
+  display: flex;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 15px; /* Increase spacing between items */
+  position: relative;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav-links a:hover {
+  color: #ffdd57; /* Change color on hover */
+}
+
+.nav-icon {
+  margin-right: 8px; /* Increase spacing between icon and text */
+}
+
+.nav-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff; /* Light background for dropdown */
+  color: #343a40; /* Dark text color */
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 8px; /* More rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for dropdown */
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease; /* Smooth transition for dropdown */
+}
+
+.dropdown-menu.show {
+  display: block;
+  opacity: 1;
+}
+
+.dropdown-menu li {
+  padding: 12px 20px; /* Larger padding for items */
+}
+
+.dropdown-menu li a {
+  color: #343a40;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dropdown-menu li a:hover {
+  color: #4a90e2; /* Change color on hover */
+  text-decoration: underline;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  display: block;
+  opacity: 1;
+}
+
+/* Responsive design for hamburger menu */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navigation {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px; /* Adjust this if your header height changes */
+    left: 0;
+    background: linear-gradient(135deg, #4a90e2, #50e3c2); /* Same gradient background */
+  }
+
+  .navigation.active {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .nav-links li {
+    margin: 15px 0; /* Increase margin for mobile */
+  }
+}
+
+/* Adding padding to body to prevent content overlap */
+body {
+  padding-top: 70px; /* Match this with your header height */
+}
