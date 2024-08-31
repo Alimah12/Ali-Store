@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './Login.css';
+import './Signup.css';
 
-const Login = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+const Signup = () => {
+  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -12,23 +12,30 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    // Simulate a login request
-    if (formData.email && formData.password) {
-      setSuccessMessage('Login successful!');
+
+    // Simulate a signup request
+    if (formData.username && formData.email && formData.password) {
+      setSuccessMessage('Signup successful!');
       setErrorMessage('');
-      // Redirect to profile page or handle successful login
+      // Redirect to login page or handle successful signup
     } else {
       setErrorMessage('Please fill all fields.');
     }
   };
 
   return (
-    <div className="login">
-      <h2>Login</h2>
+    <div className="signup">
+      <h2>Sign Up</h2>
       {successMessage && <div className="success-message">{successMessage}</div>}
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={formData.username}
+          onChange={handleChange}
+        />
         <input
           type="email"
           name="email"
@@ -43,10 +50,10 @@ const Login = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        <button type="submit">Login</button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
   );
 };
 
-export default Login;
+export default Signup;

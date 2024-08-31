@@ -50,6 +50,7 @@ const Header = () => {
               {dropdownOpen && (
                 <ul className="dropdown-menu">
                   <li><Link to="/login" onClick={toggleMenu}>Login</Link></li>
+                  <li><Link to="/login" onClick={toggleMenu}>SignUp</Link></li>
                   <li><Link to="/profile" onClick={toggleMenu}>Profile</Link></li>
                   <li><Link to="/orders" onClick={toggleMenu}>Orders</Link></li>
                 </ul>
